@@ -18,6 +18,10 @@ public class TestListStack {
         IntStream.range(0, 10).mapToObj(i -> (char) (i + 'a')).forEach(stack::push);
         assertEquals(stack.size(), 10);
         assertEquals(ConvertUtil.stack2Sting(stack), "j->i->h->g->f->e->d->c->b->a");
+
+        assertEquals(stack.pop().charValue(), 'j');
+        stack.push('k');
+        assertEquals(ConvertUtil.stack2Sting(stack), "k->i->h->g->f->e->d->c->b->a");
     }
 
 }
