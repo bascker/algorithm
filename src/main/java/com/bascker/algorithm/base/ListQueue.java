@@ -17,6 +17,8 @@ public class ListQueue<T> implements Queue<T> {
      */
     private Node<T> last;
 
+    public ListQueue () {}
+
     @Override
     public void enqueue(T item) {
         Node<T> oriLast = last;

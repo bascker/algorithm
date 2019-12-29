@@ -35,6 +35,10 @@ public class FixedStack<T> implements Stack<T> {
         return n == 0;
     }
 
+    public boolean isFull() {
+        return n == container.length;
+    }
+
     @Override
     public Iterator<T> iterator() {
         return new FixedStackIterator();

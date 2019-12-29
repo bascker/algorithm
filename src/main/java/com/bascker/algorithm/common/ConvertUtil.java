@@ -31,8 +31,6 @@ public class ConvertUtil {
         return toString(stack, Constant.ARROW_RIGHT);
     }
 
-
-
     private ConvertUtil () {}
 
 }

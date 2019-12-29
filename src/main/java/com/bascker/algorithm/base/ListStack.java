@@ -16,6 +16,8 @@ public class ListStack<T> implements Stack<T> {
      */
     private Node<T> first;
 
+    public ListStack () {}
+
     @Override
     public void push(T item) {
         final Node<T> oriFirst = first;

@@ -7,6 +7,7 @@ import java.util.stream.IntStream;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
+import static org.testng.Assert.expectThrows;
 
 @Test
 public class TestFixedStack {
@@ -24,6 +25,14 @@ public class TestFixedStack {
             stack.pop();
         }
         assertEquals(stack.size(), 0);
+    }
+
+    public void testIsFull() {
+        final Stack<Integer> stack = new FixedStack<>(2);
+        IntStream.range(1, 3).boxed().forEach(stack::push);
+        assertEquals(stack.size(), 2);
+        assertTrue(((FixedStack<Integer>) stack).isFull());
+        expectThrows(ArrayIndexOutOfBoundsException.class, () -> {stack.push(3);});
     }
 
 }

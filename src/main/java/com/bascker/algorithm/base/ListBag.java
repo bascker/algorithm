@@ -16,6 +16,8 @@ public class ListBag<T> implements Bag<T> {
      */
     private Node<T> first;
 
+    public ListBag() {}
+
     @Override
     public void add(T item) {
         final Node<T> oriFirst = first;
