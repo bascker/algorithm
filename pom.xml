@@ -21,6 +21,12 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.baskcer.util</groupId>
+            <artifactId>bsutil</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>${testng.version}</version>
