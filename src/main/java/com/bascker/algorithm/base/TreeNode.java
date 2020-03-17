@@ -9,7 +9,7 @@ import lombok.ToString;
 @ToString
 public class TreeNode<T> {
 
-    private T val;
+    private T item;
 
     private TreeNode<T> left;
 
@@ -18,12 +18,12 @@ public class TreeNode<T> {
     public TreeNode() {
     }
 
-    public TreeNode(T value) {
-        this.val = value;
+    public TreeNode(T item) {
+        this.item = item;
     }
 
-    public TreeNode(T val, TreeNode<T> left, TreeNode<T> right) {
-        this.val = val;
+    public TreeNode(T item, TreeNode<T> left, TreeNode<T> right) {
+        this.item = item;
         this.left = left;
         this.right = right;
     }
