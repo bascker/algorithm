@@ -6,6 +6,10 @@ package com.bascker.algorithm.base;
  */
 public interface Stack<T> extends Iterable<T> {
 
+    // -----------------------
+    // Base Function
+    // -----------------------
+
     /**
      * push object to stack
      * @param item object, the item could be null
@@ -17,5 +21,12 @@ public interface Stack<T> extends Iterable<T> {
     int size();
 
     boolean isEmpty();
+
+    // ---------------------
+    // Extend Function
+    // ---------------------
+    default boolean isNotEmpty() {
+        return !isEmpty();
+    }
 
 }
