@@ -11,12 +11,13 @@
 
     <properties>
         <project.java.version>1.8</project.java.version>
-        <plugin.mvn.version>2.3.2</plugin.mvn.version>
+        <plugin.mvn.version>3.8.0</plugin.mvn.version>
 
         <commons.lang3.version>3.4</commons.lang3.version>
         <commons.collections4.version>4.1</commons.collections4.version>
         <testng.version>6.11</testng.version>
         <guava.version>23.6-jre</guava.version>
+        <lombok.version>1.18.10</lombok.version>
     </properties>
 
     <dependencies>
@@ -44,6 +45,14 @@
             <artifactId>guava</artifactId>
             <version>${guava.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
     </dependencies>
 
 
