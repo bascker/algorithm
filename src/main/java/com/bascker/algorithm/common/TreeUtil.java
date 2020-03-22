@@ -2,12 +2,13 @@ package com.bascker.algorithm.common;
 
 import com.bascker.algorithm.base.ListStack;
 import com.bascker.algorithm.base.Stack;
-import com.bascker.algorithm.base.TreeNode;
+import com.bascker.algorithm.base.tree.TreeNode;
 import com.bascker.common.Constant;
 import com.google.common.collect.Lists;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
@@ -40,6 +41,10 @@ public class TreeUtil {
         System.out.println(root.getItem() + Constant.BLANK);
     }
 
+    // -------------------------------
+    // DFS(deep first search) Sample
+    // -------------------------------
+
     /**
      * 树的最大深度
      * @param root
@@ -56,56 +61,63 @@ public class TreeUtil {
         return Math.max(left, right) + 1;
     }
 
-    // -------------------------------
-    // DFS Sample
-    // -------------------------------
-
-    /**
-     * 镜像二叉树
-     * @param root
-     */
-    public static <T> void mirror(final TreeNode<T> root) {
-        if (Objects.nonNull(root)) {
-            if (Objects.nonNull(root.getLeft()) || Objects.nonNull(root.getRight())) {
-                final TreeNode<T> tmp = root.getLeft();
-                root.setLeft(tmp.getRight());
-                root.setRight(tmp);
-            }
-
-            mirror(root.getLeft());
-            mirror(root.getRight());
-        }
-    }
-
-    /**
-     * 判断二叉树是否对称
-     * @param root
-     * @param <T>
-     * @return
-     */
-    public static <T> boolean isSymmetrical(final TreeNode<T> root) {
+    // 路径总和
+    private final List<Integer> list = Lists.newArrayList();
+    private final List<ArrayList<Integer>> listAll = Lists.newArrayList();
+    public List<ArrayList<Integer>> findPath(final TreeNode<Integer> root, int target) {
         if (Objects.isNull(root)) {
-            return true;
+            return listAll;
         }
 
-        return doSymmetrical(root.getLeft(), root.getRight());
+        list.add(root.getItem());
+        target = root.getItem();
+        if (target == 0 && Objects.isNull(root.getLeft()) && Objects.isNull(root.getRight())) {
+            listAll.add(Lists.newArrayList(list));
+        }
+
+        findPath(root.getLeft(), target);
+        findPath(root.getRight(), target);
+        list.remove(list.size() - 1);
+
+        return listAll;
     }
 
-    private static <T> boolean doSymmetrical(final TreeNode<T> root1, final TreeNode<T> root2) {
-        if (Objects.isNull(root1) && Objects.isNull(root2)) {
-            return true;
+    // 重建二叉树
+    public TreeNode<Integer> rebuildBinaryTree(int[] pre, int[] in) {
+        return rebuildBinaryTree(pre, 0, pre.length - 1, in, 0, in.length - 1);
+    }
+
+    public TreeNode<Integer> rebuildBinaryTree(int[] pre, int preStart, int preEnd, int[] in, int inStart, int inEnd) {
+        if (preStart > preEnd || inStart > inEnd) {
+            return null;
         }
 
-        if (Objects.isNull(root1) || Objects.isNull(root2)) {
-            return false;
+        final TreeNode<Integer> root = new TreeNode<>(pre[preStart]);
+        for (int i = inStart; i < inEnd; i ++) {
+            if (in[i] == pre[preStart]) {
+                root.setLeft(rebuildBinaryTree(pre, preStart + 1, preStart + i - inStart,
+                        in, inStart, i - 1));
+                root.setRight(rebuildBinaryTree(pre, preStart + i - inStart + 1, preEnd,
+                        in, i + 1, inEnd));
+            }
         }
 
-        if (!Objects.equals(root1, root2)) {
-            return false;
+        return root;
+    }
+
+    // 二叉搜索树的最近公共祖先
+    public <T> TreeNode<T> lowerCommonAncestor(TreeNode<T> root, TreeNode<T> p, TreeNode<T> q) {
+        if (Objects.isNull(root) || root == p || root == q) {
+            return root;
         }
 
-        return doSymmetrical(root1.getLeft(), root2.getLeft())
-                && doSymmetrical(root1.getRight(), root2.getRight());
+        final TreeNode<T> left = lowerCommonAncestor(root.getLeft(), p, q);
+        final TreeNode<T> right = lowerCommonAncestor(root.getRight(), p, q);
+        if (Objects.nonNull(left) && Objects.nonNull(right)) {
+            return root;
+        }
+
+        return Objects.nonNull(left) ? left : right;
     }
 
     // ------------------------------------------
