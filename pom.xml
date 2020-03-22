@@ -18,6 +18,10 @@
         <testng.version>6.11</testng.version>
         <guava.version>23.6-jre</guava.version>
         <lombok.version>1.18.10</lombok.version>
+        <slf4j.version>1.7.21</slf4j.version>
+        <slf4j.api.version>${slf4j.version}</slf4j.api.version>
+        <slf4j.log4j12.version>${slf4j.version}</slf4j.log4j12.version>
+        <log4j.version>1.2.17</log4j.version>
     </properties>
 
     <dependencies>
@@ -25,6 +29,25 @@
             <groupId>com.baskcer.util</groupId>
             <artifactId>bsutil</artifactId>
             <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.api.version}</version>
+        </dependency>
+
+        <!--slf4j + log4j-->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>${slf4j.log4j12.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>${log4j.version}</version>
         </dependency>
 
         <dependency>

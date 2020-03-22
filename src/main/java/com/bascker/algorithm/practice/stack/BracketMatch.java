@@ -3,6 +3,7 @@ package com.bascker.algorithm.practice.stack;
 import com.bascker.algorithm.base.ListStack;
 import com.bascker.algorithm.base.Stack;
 import com.bascker.algorithm.common.Constant;
+import com.bascker.common.Operator;
 import com.google.common.collect.ImmutableMap;
 import org.apache.commons.lang3.BooleanUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -18,9 +19,9 @@ public class BracketMatch {
     private static final BracketMatch instance = new BracketMatch();
 
     private static final Map<String, String> MATCHES = new ImmutableMap.Builder<String, String>()
-            .put(Constant.Operator.BRACE_LEFT.val(), Constant.Operator.BRACE_RIGHT.val())
-            .put(Constant.Operator.BRACKET_LEFT.val(), Constant.Operator.BRACKET_RIGHT.val())
-            .put(Constant.Operator.BRACKET_MID_LEFT.val(), Constant.Operator.BRACKET_MID_RIGHT.val())
+            .put(Operator.BRACE_LEFT.val(), Operator.BRACE_RIGHT.val())
+            .put(Operator.BRACKET_LEFT.val(), Operator.BRACKET_RIGHT.val())
+            .put(Operator.BRACKET_MID_LEFT.val(), Operator.BRACKET_MID_RIGHT.val())
             .build();
 
     public static BracketMatch getInstance() {

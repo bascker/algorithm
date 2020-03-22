@@ -3,6 +3,7 @@ package com.bascker.algorithm;
 import com.bascker.algorithm.base.ListStack;
 import com.bascker.algorithm.base.Stack;
 import com.bascker.algorithm.common.Constant;
+import com.bascker.common.Operator;
 import com.google.common.collect.Sets;
 import org.apache.commons.lang3.StringUtils;
 
@@ -21,8 +22,8 @@ public class DijkstraEvaluate {
     /**
      * 支持的运算符
      */
-    private static final Set<String> OPS = Sets.newHashSet(Constant.Operator.ADD.val(),
-            Constant.Operator.SUB.val(), Constant.Operator.MUL.val(), Constant.Operator.DEV.val());
+    private static final Set<String> OPS = Sets.newHashSet(Operator.ADD.val(),
+            Operator.SUB.val(), Operator.MUL.val(), Operator.DEV.val());
 
     private static final DijkstraEvaluate instance = new DijkstraEvaluate();
 
@@ -45,7 +46,7 @@ public class DijkstraEvaluate {
             final String s = String.valueOf(string.charAt(i));
 
             // step1. 若是左括号或空格，则忽略
-            if (StringUtils.equals(Constant.Operator.BRACKET_LEFT.val(), s) || StringUtils.isBlank(s)) {
+            if (StringUtils.equals(Operator.BRACKET_LEFT.val(), s) || StringUtils.isBlank(s)) {
                 continue;
             }
 
@@ -54,19 +55,19 @@ public class DijkstraEvaluate {
                 ops.push(s);
             }
             // step3. 若是右括号, 则弹出运算符和操作数，并将结果压入操作数栈
-            else if (StringUtils.equals(Constant.Operator.BRACKET_RIGHT.val(), s))
+            else if (StringUtils.equals(Operator.BRACKET_RIGHT.val(), s))
             {
                 final double val = vals.pop();
                 final String op = ops.pop();
 
                 double rs = val;
-                if (StringUtils.equals(Constant.Operator.ADD.val(), op)) {
+                if (StringUtils.equals(Operator.ADD.val(), op)) {
                     rs = vals.pop() + val;
-                } else if (StringUtils.equals(Constant.Operator.SUB.val(), op)) {
+                } else if (StringUtils.equals(Operator.SUB.val(), op)) {
                     rs = vals.pop() - val;
-                } else if (StringUtils.equals(Constant.Operator.MUL.val(), op)) {
+                } else if (StringUtils.equals(Operator.MUL.val(), op)) {
                     rs = vals.pop() * val;
-                } else if (StringUtils.equals(Constant.Operator.DEV.val(), op)) {
+                } else if (StringUtils.equals(Operator.DEV.val(), op)) {
                     rs = vals.pop() / val;
                 }
 
