@@ -1,5 +1,6 @@
-package com.bascker.algorithm.base;
+package com.bascker.algorithm.base.tree;
 
+import com.bascker.algorithm.base.Node;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
