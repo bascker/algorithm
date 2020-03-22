@@ -7,9 +7,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class TreeNode<T> {
-
-    private T item;
+public class TreeNode<T> extends Node<T> {
 
     private TreeNode<T> left;
 

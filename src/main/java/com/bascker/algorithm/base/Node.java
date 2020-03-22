@@ -1,32 +1,12 @@
 package com.bascker.algorithm.base;
 
-public class Node<T> {
+import lombok.Getter;
+import lombok.Setter;
 
-    private T item;
+@Getter
+@Setter
+public abstract class Node<T> {
 
-    private Node<T> next;
+    protected T item;
 
-    public Node() {
-    }
-
-    public Node(T item, Node<T> next) {
-        this.item = item;
-        this.next = next;
-    }
-
-    public T getItem() {
-        return item;
-    }
-
-    public void setItem(T item) {
-        this.item = item;
-    }
-
-    public Node<T> getNext() {
-        return next;
-    }
-
-    public void setNext(Node<T> next) {
-        this.next = next;
-    }
 }

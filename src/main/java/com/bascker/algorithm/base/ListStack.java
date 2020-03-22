@@ -14,14 +14,14 @@ public class ListStack<T> implements Stack<T> {
     /**
      * first 指针跟踪栈顶
      */
-    private Node<T> first;
+    private ListNode<T> first;
 
     public ListStack () {}
 
     @Override
     public void push(T item) {
-        final Node<T> oriFirst = first;
-        first = new Node<>(item, oriFirst);
+        final ListNode<T> oriFirst = first;
+        first = new ListNode<>(item, oriFirst);
         n ++;
     }
 
@@ -29,7 +29,7 @@ public class ListStack<T> implements Stack<T> {
     public T pop() {
         final T item = first.getItem();
 
-        final Node<T> oriFirst = first;
+        final ListNode<T> oriFirst = first;
         first = first.getNext();
         oriFirst.setNext(null);
 
@@ -54,7 +54,7 @@ public class ListStack<T> implements Stack<T> {
 
     class ListStackIterator implements Iterator<T> {
 
-        private Node<T> current = first;
+        private ListNode<T> current = first;
 
         @Override
         public boolean hasNext() {

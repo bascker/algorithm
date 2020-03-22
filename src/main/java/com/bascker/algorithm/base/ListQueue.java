@@ -10,19 +10,19 @@ public class ListQueue<T> implements Queue<T> {
     /**
      * 指向队头(最早添加的节点)
      */
-    private Node<T> first;
+    private ListNode<T> first;
 
     /**
      * 指向队尾(最近添加的节点)
      */
-    private Node<T> last;
+    private ListNode<T> last;
 
     public ListQueue () {}
 
     @Override
     public void enqueue(T item) {
-        Node<T> oriLast = last;
-        last = new Node<>(item, null);
+        ListNode<T> oriLast = last;
+        last = new ListNode<>(item, null);
         if (isEmpty()) {
             first = last;
         } else {
@@ -36,7 +36,7 @@ public class ListQueue<T> implements Queue<T> {
     public T dequeue() {
         final T item = first.getItem();
 
-        final Node<T> oriFirst = first;
+        final ListNode<T> oriFirst = first;
         first = first.getNext();
         oriFirst.setNext(null);
 
@@ -65,7 +65,7 @@ public class ListQueue<T> implements Queue<T> {
 
     class ListQueueIterator implements Iterator<T> {
 
-        private Node<T> current = first;
+        private ListNode<T> current = first;
 
         @Override
         public boolean hasNext() {

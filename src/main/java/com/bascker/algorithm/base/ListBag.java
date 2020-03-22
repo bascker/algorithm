@@ -14,14 +14,14 @@ public class ListBag<T> implements Bag<T> {
     /**
      * 背包首节点
      */
-    private Node<T> first;
+    private ListNode<T> first;
 
     public ListBag() {}
 
     @Override
     public void add(T item) {
-        final Node<T> oriFirst = first;
-        first = new Node<>(item, oriFirst);
+        final ListNode<T> oriFirst = first;
+        first = new ListNode<>(item, oriFirst);
         n ++;
     }
 
@@ -42,7 +42,7 @@ public class ListBag<T> implements Bag<T> {
 
     class ListBagIterator implements Iterator<T> {
 
-        private Node<T> current = first;
+        private ListNode<T> current = first;
 
         @Override
         public boolean hasNext() {
