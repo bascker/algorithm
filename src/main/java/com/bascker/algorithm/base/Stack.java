@@ -22,6 +22,12 @@ public interface Stack<T> extends Iterable<T> {
 
     boolean isEmpty();
 
+    /**
+     * get the last element, but not pop it
+     * @return the top element
+     */
+    T peek();
+
     // ---------------------
     // Extend Function
     // ---------------------

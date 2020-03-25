@@ -23,4 +23,18 @@ public class TestElasticStack {
         assertEquals(stack.getCapacity(), 5);
     }
 
+    public void testPeek() {
+        final ElasticStack<Integer> stack = new ElasticStack<>(10);
+        stack.push(1);
+        stack.push(3);
+        stack.push(6);
+
+        assertEquals(stack.peek().intValue(), 6);
+        assertEquals(stack.size(), 3);
+
+        stack.pop();
+        assertEquals(stack.peek().intValue(), 3);
+        assertEquals(stack.size(), 2);
+    }
+
 }

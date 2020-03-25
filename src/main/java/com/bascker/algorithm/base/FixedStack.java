@@ -35,6 +35,11 @@ public class FixedStack<T> implements Stack<T> {
         return n == 0;
     }
 
+    @Override
+    public T peek() {
+        return container[n - 1];
+    }
+
     public boolean isFull() {
         return n == container.length;
     }

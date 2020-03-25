@@ -24,4 +24,18 @@ public class TestListStack {
         assertEquals(ConvertUtil.stack2Sting(stack), "k->i->h->g->f->e->d->c->b->a");
     }
 
+    public void testPeek() {
+        final Stack<Character> stack = new ListStack<>();
+        stack.push('a');
+        stack.push('b');
+        stack.push('c');
+
+        assertEquals(stack.size(), 3);
+        assertEquals(stack.peek().charValue(), 'c');
+
+        stack.pop();
+        assertEquals(stack.size(), 2);
+        assertEquals(stack.peek().charValue(), 'b');
+    }
+
 }

@@ -48,6 +48,11 @@ public class ListStack<T> implements Stack<T> {
     }
 
     @Override
+    public T peek() {
+        return first.getItem();
+    }
+
+    @Override
     public Iterator<T> iterator() {
         return new ListStackIterator();
     }

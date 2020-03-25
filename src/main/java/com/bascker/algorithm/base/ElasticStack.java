@@ -41,6 +41,11 @@ public class ElasticStack<T> implements Stack<T> {
         return n == 0;
     }
 
+    @Override
+    public T peek() {
+        return container[n - 1];
+    }
+
     /**
      * 获取当前栈的容量
      * @return
