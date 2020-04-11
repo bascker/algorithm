@@ -14,4 +14,12 @@ public interface Queue<T> extends Iterable<T> {
 
     boolean isEmpty();
 
+    // -----------------------
+    // Extension Function
+    // -----------------------
+
+    default boolean isNotEmpty() {
+        return !isEmpty();
+    }
+
 }
