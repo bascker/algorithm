@@ -87,7 +87,7 @@
 
 
     <build>
-        <finalName>algorithm-${version}</finalName>
+        <finalName>algorithm-${project.version}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
