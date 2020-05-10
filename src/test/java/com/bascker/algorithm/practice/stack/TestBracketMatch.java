@@ -24,7 +24,6 @@ public class TestBracketMatch {
         assertFalse(BracketMatch.getInstance().isMatch("[()]{}{[()()]("));
         assertFalse(BracketMatch.getInstance().isMatch("[(]}"));
         assertFalse(BracketMatch.getInstance().isMatch("[(])"));
-
     }
 
 }

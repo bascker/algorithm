@@ -2,7 +2,6 @@ package com.bascker.algorithm.practice.stack;
 
 import com.bascker.algorithm.base.ListStack;
 import com.bascker.algorithm.base.Stack;
-import com.bascker.algorithm.common.Constant;
 import com.bascker.common.Operator;
 import com.google.common.collect.ImmutableMap;
 import org.apache.commons.lang3.BooleanUtils;
@@ -18,7 +17,7 @@ public class BracketMatch {
 
     private static final BracketMatch instance = new BracketMatch();
 
-    private static final Map<String, String> MATCHES = new ImmutableMap.Builder<String, String>()
+    private static final Map<Character, Character> MATCHES = new ImmutableMap.Builder<Character, Character>()
             .put(Operator.BRACE_LEFT.val(), Operator.BRACE_RIGHT.val())
             .put(Operator.BRACKET_LEFT.val(), Operator.BRACKET_RIGHT.val())
             .put(Operator.BRACKET_MID_LEFT.val(), Operator.BRACKET_MID_RIGHT.val())
@@ -33,17 +32,17 @@ public class BracketMatch {
             return false;
         }
 
-        final Stack<String> stack = new ListStack<>();
+        final Stack<Character> stack = new ListStack<>();
         for (int i = 0; i < s.length(); i ++) {
-            final String item = String.valueOf(s.charAt(i));
+            final Character item = s.charAt(i);
             // step1. 若是左括号，则入栈
             if (MATCHES.keySet().contains(item)) {
                 stack.push(item);
             }
             // step2. 若是右括号，且栈非空，则出栈。并判断出栈的元素是否与当前操作数 item 是否匹配
             else if (MATCHES.values().contains(item) && BooleanUtils.isFalse(stack.isEmpty())) {
-                final String v = stack.pop();
-                if (BooleanUtils.isFalse(StringUtils.equals(MATCHES.get(v), item))) {
+                final char v = stack.pop();
+                if (BooleanUtils.isFalse(MATCHES.get(v) == item)) {
                     return false;
                 }
             }

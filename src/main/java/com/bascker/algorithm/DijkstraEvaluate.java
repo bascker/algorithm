@@ -2,7 +2,6 @@ package com.bascker.algorithm;
 
 import com.bascker.algorithm.base.ListStack;
 import com.bascker.algorithm.base.Stack;
-import com.bascker.algorithm.common.Constant;
 import com.bascker.common.Operator;
 import com.google.common.collect.Sets;
 import org.apache.commons.lang3.StringUtils;
@@ -22,7 +21,7 @@ public class DijkstraEvaluate {
     /**
      * 支持的运算符
      */
-    private static final Set<String> OPS = Sets.newHashSet(Operator.ADD.val(),
+    private static final Set<Character> OPS = Sets.newHashSet(Operator.ADD.val(),
             Operator.SUB.val(), Operator.MUL.val(), Operator.DEV.val());
 
     private static final DijkstraEvaluate instance = new DijkstraEvaluate();
@@ -39,35 +38,35 @@ public class DijkstraEvaluate {
         }
 
         // 运算符栈
-        final Stack<String> ops = new ListStack<>();
+        final Stack<Character> ops = new ListStack<>();
         // 操作数栈
         final Stack<Double> vals = new ListStack<>();
         for (int i = 0; i < string.length(); i ++) {
-            final String s = String.valueOf(string.charAt(i));
+            final char ch = string.charAt(i);
 
             // step1. 若是左括号或空格，则忽略
-            if (StringUtils.equals(Operator.BRACKET_LEFT.val(), s) || StringUtils.isBlank(s)) {
+            if (Operator.BRACKET_LEFT.val() == ch || ch == ' ') {
                 continue;
             }
 
             // step2. 若是运算符，则压入运算符栈
-            if (OPS.contains(s)) {
-                ops.push(s);
+            if (OPS.contains(ch)) {
+                ops.push(ch);
             }
             // step3. 若是右括号, 则弹出运算符和操作数，并将结果压入操作数栈
-            else if (StringUtils.equals(Operator.BRACKET_RIGHT.val(), s))
+            else if (Operator.BRACKET_RIGHT.val() == ch)
             {
                 final double val = vals.pop();
-                final String op = ops.pop();
+                final char op = ops.pop();
 
                 double rs = val;
-                if (StringUtils.equals(Operator.ADD.val(), op)) {
+                if (Operator.ADD.val() == op) {
                     rs = vals.pop() + val;
-                } else if (StringUtils.equals(Operator.SUB.val(), op)) {
+                } else if (Operator.SUB.val() == op) {
                     rs = vals.pop() - val;
-                } else if (StringUtils.equals(Operator.MUL.val(), op)) {
+                } else if (Operator.MUL.val() == op) {
                     rs = vals.pop() * val;
-                } else if (StringUtils.equals(Operator.DEV.val(), op)) {
+                } else if (Operator.DEV.val() == op) {
                     rs = vals.pop() / val;
                 }
 
@@ -75,7 +74,7 @@ public class DijkstraEvaluate {
             }
             // step4. 若是操作数，则压入操作数栈
             else {
-                vals.push(Double.parseDouble(s));
+                vals.push(Double.parseDouble(String.valueOf(ch)));
             }
         }
 

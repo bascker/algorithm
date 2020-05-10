@@ -5,7 +5,8 @@
 algorithm
 |- base                 # 基础数据结构的实现
 |- common               # 工具类等
-|- practice             # 练习
+|- practice             # 练习, 其中 @from 标识题目来源
+|- sort                 # 排序算法
 ```
 
 ## 二、运行
