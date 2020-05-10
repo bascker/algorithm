@@ -28,3 +28,22 @@ drwxr-xr-x 1 bascker 197121     0 12月 29 19:53 ./
 drwxr-xr-x 1 bascker 197121     0 12月 29 19:53 ../
 -rw-r--r-- 1 bascker 197121 18879 12月 29 19:41 b
 ```
+
+## 三、单元测试
+代码修改后，本地 mvn 进行 test 测试, 测试套件会自动触发项目中的单元测试。
+> 本项目使用 testng 作为单元测试套件
+
+```
+[INFO] --- maven-surefire-plugin:2.8.1:test (default-test) @ algorithm ---
+[INFO] Surefire report directory: D:\..\code\algorithm\target\surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running TestSuite
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.268 sec
+
+Results :
+
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0
+```
