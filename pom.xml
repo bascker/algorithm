@@ -102,8 +102,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${plugin.mvn.surefire.version}</version>
                 <configuration>
-                    <encoding>UTF-8</encoding>
-                    <testFailureIgnore>true</testFailureIgnore>
+                    <testFailureIgnore>false</testFailureIgnore>
                 </configuration>
             </plugin>
         </plugins>
