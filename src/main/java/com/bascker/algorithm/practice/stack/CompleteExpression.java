@@ -1,7 +1,8 @@
 package com.bascker.algorithm.practice.stack;
 
-import com.bascker.algorithm.base.ListStack;
+import com.bascker.algorithm.base.stack.ListStack;
 import com.bascker.algorithm.base.Stack;
+import com.bascker.common.Constant;
 import com.bascker.common.Operator;
 import com.google.common.collect.Lists;
 import org.apache.commons.lang3.StringUtils;
@@ -15,7 +16,7 @@ import java.util.List;
  * output: ((1+2)*((3-4)*(5-6)))
  *
  * @author bascker
- * @since v1.0
+ * @version v1.0
  * @from 算法4 T1.3.9
  */
 public class CompleteExpression {
@@ -57,9 +58,9 @@ public class CompleteExpression {
                 String b = datas.pop();
 
                 // step4 将补齐的表达式放入 datas 中
-                String s = new StringBuilder().append(Operator.BRACKET_LEFT.val())
+                String s = new StringBuilder().append(Constant.BRACKET_LEFT)
                         .append(b).append(ops.pop()).append(a)
-                        .append(Operator.BRACKET_RIGHT.val()).toString();
+                        .append(Constant.BRACKET_RIGHT).toString();
                 datas.push(s);
             }
         }

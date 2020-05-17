@@ -1,6 +1,6 @@
 package com.bascker.algorithm.common;
 
-import com.bascker.algorithm.base.ListStack;
+import com.bascker.algorithm.base.stack.ListStack;
 import com.bascker.algorithm.base.Stack;
 import com.bascker.algorithm.base.tree.TreeNode;
 import com.bascker.common.Constant;

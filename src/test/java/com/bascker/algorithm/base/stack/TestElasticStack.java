@@ -1,5 +1,6 @@
-package com.bascker.algorithm.base;
+package com.bascker.algorithm.base.stack;
 
+import com.bascker.algorithm.base.stack.ElasticStack;
 import com.bascker.algorithm.common.ConvertUtil;
 import org.testng.annotations.Test;
 

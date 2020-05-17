@@ -1,4 +1,7 @@
-package com.bascker.algorithm.base;
+package com.bascker.algorithm.base.queue;
+
+import com.bascker.algorithm.base.ListNode;
+import com.bascker.algorithm.base.Queue;
 
 import java.util.Iterator;
 import java.util.Objects;
