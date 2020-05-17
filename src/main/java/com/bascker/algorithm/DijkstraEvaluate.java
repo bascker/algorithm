@@ -1,7 +1,8 @@
 package com.bascker.algorithm;
 
-import com.bascker.algorithm.base.ListStack;
+import com.bascker.algorithm.base.stack.ListStack;
 import com.bascker.algorithm.base.Stack;
+import com.bascker.common.Constant;
 import com.bascker.common.Operator;
 import com.google.common.collect.Sets;
 import org.apache.commons.lang3.StringUtils;
@@ -45,7 +46,7 @@ public class DijkstraEvaluate {
             final char ch = string.charAt(i);
 
             // step1. 若是左括号或空格，则忽略
-            if (Operator.BRACKET_LEFT.val() == ch || ch == ' ') {
+            if (Constant.BRACKET_LEFT == ch || ch == ' ') {
                 continue;
             }
 
@@ -54,7 +55,7 @@ public class DijkstraEvaluate {
                 ops.push(ch);
             }
             // step3. 若是右括号, 则弹出运算符和操作数，并将结果压入操作数栈
-            else if (Operator.BRACKET_RIGHT.val() == ch)
+            else if (Constant.BRACKET_RIGHT == ch)
             {
                 final double val = vals.pop();
                 final char op = ops.pop();

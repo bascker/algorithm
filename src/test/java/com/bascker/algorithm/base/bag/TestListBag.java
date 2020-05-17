@@ -1,5 +1,7 @@
-package com.bascker.algorithm.base;
+package com.bascker.algorithm.base.bag;
 
+import com.bascker.algorithm.base.Bag;
+import com.bascker.algorithm.base.bag.ListBag;
 import com.bascker.algorithm.common.ConvertUtil;
 import org.testng.annotations.Test;
 

@@ -1,5 +1,7 @@
-package com.bascker.algorithm.base;
+package com.bascker.algorithm.base.queue;
 
+import com.bascker.algorithm.base.Queue;
+import com.bascker.algorithm.base.queue.ListQueue;
 import com.bascker.algorithm.common.ConvertUtil;
 import org.testng.annotations.Test;
 
