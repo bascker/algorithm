@@ -1,6 +1,7 @@
 package com.bascker.algorithm.common;
 
 import com.bascker.algorithm.base.Bag;
+import com.bascker.algorithm.base.ListNode;
 import com.bascker.algorithm.base.Queue;
 import com.bascker.algorithm.base.Stack;
 import com.bascker.common.CastUtils;
@@ -18,6 +19,10 @@ public class ConvertUtil {
 
     public static <T> String stack2Sting(final Stack<T> stack) {
         return CastUtils.toString(stack, Constant.ARROW_RIGHT);
+    }
+
+    public static <T> String list2String(final ListNode<T> head) {
+        return CastUtils.toString(head, Constant.ARROW_RIGHT);
     }
 
     private ConvertUtil () {}
