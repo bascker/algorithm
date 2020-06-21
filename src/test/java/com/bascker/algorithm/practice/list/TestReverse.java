@@ -21,8 +21,6 @@ public class TestReverse {
     public <T> void test(final ListNode<T> head, final ListNode<T> expected) {
         final String sHead = ConvertUtil.list2String(instance.reverse(head));
         final String sExpected = ConvertUtil.list2String(expected);
-        System.out.println(sHead);
-        System.out.println(sExpected);
 
         Assert.assertEquals(sExpected, sHead);
     }

@@ -2,6 +2,7 @@ package com.bascker.algorithm.practice.recursion;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 @Test
@@ -14,13 +15,21 @@ public class TestLookAndSaySequence {
         lass = new LookAndSaySequence();
     }
 
-    public void test() {
-        Assert.assertEquals(lass.countAndSay(1), "1");
-        Assert.assertEquals(lass.countAndSay(2), "11");
-        Assert.assertEquals(lass.countAndSay(3), "21");
-        Assert.assertEquals(lass.countAndSay(4), "1211");
-        Assert.assertEquals(lass.countAndSay(5), "111221");
-        Assert.assertEquals(lass.countAndSay(6), "312211");
+    @Test(dataProvider = "data")
+    public void test(final int n, final String expected ) {
+        Assert.assertEquals(expected, lass.countAndSay(n));
+    }
+
+    @DataProvider(name = "data")
+    private Object[][] dataProvider() {
+        return new Object[][]{
+            {1, "1"},
+            {2, "11"},
+            {3, "21"},
+            {4, "1211"},
+            {5, "111221"},
+            {6, "312211"}
+        };
     }
 
 }
