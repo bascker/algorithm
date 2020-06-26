@@ -19,18 +19,14 @@ public class TestReverse {
 
     @Test(dataProvider = "data")
     public <T> void test(final ListNode<T> head, final ListNode<T> expected) {
-        final String sHead = ConvertUtil.list2String(instance.reverse(head));
-        final String sExpected = ConvertUtil.list2String(expected);
+        final String sHead = ConvertUtil.list2BeautyString(instance.reverse(head));
+        final String sExpected = ConvertUtil.list2BeautyString(expected);
 
-        Assert.assertEquals(sExpected, sHead);
+        Assert.assertEquals(sHead, sExpected);
     }
 
     @DataProvider(name = "data")
     public Object[][] dataProvider() {
-        // test1
-        ListNode<Integer> head = null;
-        ListNode<Integer> expected = null;
-
         return new Object[][] {
             testData1(), testData2(), testData3()
         };

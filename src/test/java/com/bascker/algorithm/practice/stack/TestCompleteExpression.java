@@ -9,7 +9,7 @@ public class TestCompleteExpression {
 
     @Test(dataProvider = "data")
     public void test(final String str, final String expected) {
-        Assert.assertEquals(expected, CompleteExpression.getInstance().complete(str));
+        Assert.assertEquals(CompleteExpression.getInstance().complete(str), expected);
     }
 
     @DataProvider(name = "data")

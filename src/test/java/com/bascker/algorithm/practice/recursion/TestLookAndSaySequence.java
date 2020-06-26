@@ -17,7 +17,7 @@ public class TestLookAndSaySequence {
 
     @Test(dataProvider = "data")
     public void test(final int n, final String expected ) {
-        Assert.assertEquals(expected, lass.countAndSay(n));
+        Assert.assertEquals(lass.countAndSay(n), expected);
     }
 
     @DataProvider(name = "data")
