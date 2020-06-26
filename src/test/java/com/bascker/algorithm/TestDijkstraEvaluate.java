@@ -10,7 +10,7 @@ public class TestDijkstraEvaluate {
 
     @Test(dataProvider = "data")
     public void test(final String str, final String expected) {
-        assertEquals(expected, DijkstraEvaluate.getInstance().evaluate(str));
+        assertEquals(DijkstraEvaluate.getInstance().evaluate(str), expected);
     }
 
     @DataProvider(name = "data")

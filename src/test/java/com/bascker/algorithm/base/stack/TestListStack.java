@@ -1,7 +1,6 @@
 package com.bascker.algorithm.base.stack;
 
 import com.bascker.algorithm.base.Stack;
-import com.bascker.algorithm.base.stack.ListStack;
 import com.bascker.algorithm.common.ConvertUtil;
 import org.testng.annotations.Test;
 
@@ -19,11 +18,11 @@ public class TestListStack {
 
         IntStream.range(0, 10).mapToObj(i -> (char) (i + 'a')).forEach(stack::push);
         assertEquals(stack.size(), 10);
-        assertEquals(ConvertUtil.stack2Sting(stack), "j->i->h->g->f->e->d->c->b->a");
+        assertEquals(ConvertUtil.stack2BeautySting(stack), "j->i->h->g->f->e->d->c->b->a");
 
         assertEquals(stack.pop().charValue(), 'j');
         stack.push('k');
-        assertEquals(ConvertUtil.stack2Sting(stack), "k->i->h->g->f->e->d->c->b->a");
+        assertEquals(ConvertUtil.stack2BeautySting(stack), "k->i->h->g->f->e->d->c->b->a");
     }
 
     public void testPeek() {

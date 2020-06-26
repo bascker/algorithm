@@ -1,7 +1,6 @@
 package com.bascker.algorithm.base.stack;
 
 import com.bascker.algorithm.base.Stack;
-import com.bascker.algorithm.base.stack.FixedStack;
 import com.bascker.algorithm.common.ConvertUtil;
 import org.testng.annotations.Test;
 
@@ -20,7 +19,7 @@ public class TestFixedStack {
 
         IntStream.range(1, 11).boxed().forEach(stack::push);
         assertEquals(stack.size(), 10);
-        assertEquals(ConvertUtil.stack2Sting(stack), "10->9->8->7->6->5->4->3->2->1");
+        assertEquals(ConvertUtil.stack2BeautySting(stack), "10->9->8->7->6->5->4->3->2->1");
 
         for (Integer num : stack)
         {

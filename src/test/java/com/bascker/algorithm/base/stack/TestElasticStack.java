@@ -1,6 +1,5 @@
 package com.bascker.algorithm.base.stack;
 
-import com.bascker.algorithm.base.stack.ElasticStack;
 import com.bascker.algorithm.common.ConvertUtil;
 import org.testng.annotations.Test;
 
@@ -17,7 +16,7 @@ public class TestElasticStack {
 
         IntStream.range(1, 5).boxed().forEach(stack::push);
         assertEquals(stack.size(), 4);
-        assertEquals(ConvertUtil.stack2Sting(stack), "4->3->2->1");
+        assertEquals(ConvertUtil.stack2BeautySting(stack), "4->3->2->1");
 
         stack.pop();
         stack.pop();

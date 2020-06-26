@@ -1,7 +1,6 @@
 package com.bascker.algorithm.base.bag;
 
 import com.bascker.algorithm.base.Bag;
-import com.bascker.algorithm.base.bag.ListBag;
 import com.bascker.algorithm.common.ConvertUtil;
 import org.testng.annotations.Test;
 
@@ -20,7 +19,7 @@ public class TestListBag {
 
         IntStream.range(0, 10).mapToObj(i -> (char) (i + 'a')).forEach(bag::add);
         assertEquals(bag.size(), 10);
-        assertEquals(ConvertUtil.bag2String(bag), "j->i->h->g->f->e->d->c->b->a");
+        assertEquals(ConvertUtil.bag2BeautyString(bag), "j->i->h->g->f->e->d->c->b->a");
     }
 
 }
