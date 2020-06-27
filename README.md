@@ -9,6 +9,17 @@ algorithm
 |- sort                 # 排序算法
 ```
 
+常见思路:  
+
+1、逆序, 先进后出: 优先考虑栈
+```
+AddTwoNums
+```          
+2、结点操作: 考虑哨兵结点  
+```        
+RemoveLinkedListElements
+```
+
 ## 二、运行
 项目中使用的很多工具类依赖于 [bsutil](https://github.com/bascker/bsutil) 库。
 ```
