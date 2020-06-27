@@ -10,7 +10,7 @@ import java.util.Objects;
  * in: 1->2->6->3->4->5->6, val = 6
  * out: 1->2->3->4->5
  *
- * @apiNote from leetcode 203
+ * @apiNote from leetcode T203
  */
 public class RemoveLinkedListElements {
 
