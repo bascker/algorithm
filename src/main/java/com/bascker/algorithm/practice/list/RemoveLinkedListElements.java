@@ -1,8 +1,6 @@
 package com.bascker.algorithm.practice.list;
 
 import com.bascker.algorithm.base.ListNode;
-import com.bascker.algorithm.common.ConvertUtil;
-import com.bascker.algorithm.common.ListUtil;
 
 import java.util.Objects;
 
@@ -42,6 +40,34 @@ public class RemoveLinkedListElements {
         }
 
         return result;
+    }
+
+    /**
+     * 哨兵解法: 对比 {@link #removeElements(ListNode, int)}, 代码更精简, 本质区别只在于 line50~51
+     *
+     * 哨兵节点广泛应用于树和链表中，如伪头、伪尾、标记等
+     * 通常不保存任何数据，其主要目的是使链表标准化，如使链表永不为空、永不无头、简化插入和删除。
+     * @implNote from leetcode
+     */
+    public ListNode<Integer> solution(final ListNode<Integer> head, final int val) {
+        // 初始化哨兵结点, 下一跳为链表头
+        ListNode<Integer> sentinel = new ListNode<>(-1, null);
+        sentinel.setNext(head);
+
+        ListNode<Integer> pre = sentinel;
+        ListNode<Integer> cur = head;
+
+        while (Objects.nonNull(cur)) {
+            if (cur.getItem().equals(val)) {
+                pre.setNext(cur.getNext());
+            } else {
+                pre = cur;
+            }
+
+            cur = cur.getNext();
+        }
+
+        return sentinel.getNext();
     }
 
 }

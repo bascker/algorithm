@@ -20,6 +20,9 @@ public class TestRemoveLinkedListElements {
     public void test(final ListNode<Integer> head, final int val, final String expected) {
         final ListNode<Integer> result = instance.removeElements(head, val);
         Assert.assertEquals(ConvertUtil.list2String(result), expected);
+
+        // RemoveLinkedListElements#solution
+        Assert.assertEquals(ConvertUtil.list2String(instance.solution(head, val)), expected);
     }
 
     @DataProvider(name = "data")
