@@ -1,6 +1,8 @@
 package com.bascker.algorithm.practice.list;
 
 import com.bascker.algorithm.base.ListNode;
+import com.bascker.algorithm.base.Stack;
+import com.bascker.algorithm.base.stack.ListStack;
 import com.bascker.algorithm.common.ConvertUtil;
 import com.bascker.common.CastUtils;
 
@@ -34,7 +36,7 @@ public class AddTwoNums {
 
         /* 字符串相加 */
         final int min = Math.min(s1Len, s2Len);
-        // 尾插法构造链表
+        // 头插法构造链表
         ListNode<Integer> head = null;
         int t = 0;
         for (int i = min - 1, j = 1; i >= 0; i --, j ++) {
@@ -48,13 +50,9 @@ public class AddTwoNums {
                 t = 1;
             }
 
-            if (Objects.isNull(head)) {
-                head = new ListNode<>(x, null);
-            } else {
-                ListNode<Integer> node = new ListNode<>(x, null);
-                node.setNext(head);
-                head = node;
-            }
+            ListNode<Integer> node = new ListNode<>(x, null);
+            node.setNext(head);
+            head = node;
         }
 
         // 补齐剩余部分
@@ -75,6 +73,52 @@ public class AddTwoNums {
         // t != 0 时
         if (t != 0) {
             ListNode<Integer> node = new ListNode<>(t, null);
+            node.setNext(head);
+            head = node;
+        }
+
+        return head;
+    }
+
+    /**
+     * 逆序操作: 优先考虑栈
+     * @param l1
+     * @param l2
+     * @return
+     */
+    public ListNode<Integer> solution(final ListNode<Integer> l1, final ListNode<Integer> l2) {
+        final Stack<Integer> s1 = new ListStack<>();
+        final Stack<Integer> s2 = new ListStack<>();
+        // 元素入栈
+        ListNode<Integer> p1 = l1;
+        ListNode<Integer> p2 = l2;
+
+        while (Objects.nonNull(p1)) {
+            s1.push(p1.getItem());
+            p1 = p1.getNext();
+        }
+
+        while (Objects.nonNull(p2)) {
+            s2.push(p2.getItem());
+            p2 = p2.getNext();
+        }
+
+
+        ListNode<Integer> head = null;
+        int t = 0;
+        // 栈非空或者有进位时
+        while (s1.isNotEmpty() || s2.isNotEmpty() || t == 1) {
+            int a = s1.isEmpty() ? 0 : s1.pop();
+            int b = s2.isEmpty() ? 0 : s2.pop();
+            int x = a + b + t;
+            if (x > 9) {
+                x = x - 10;
+                t = 1;
+            } else {
+                t = 0;
+            }
+
+            ListNode<Integer> node = new ListNode<>(x, null);
             node.setNext(head);
             head = node;
         }

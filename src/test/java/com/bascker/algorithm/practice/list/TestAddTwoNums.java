@@ -23,6 +23,13 @@ public class TestAddTwoNums {
         Assert.assertEquals(si, se);
     }
 
+    @Test(dataProvider = "data")
+    public void testSolution(final ListNode<Integer> l1, final ListNode<Integer> l2, final ListNode<Integer> expected) {
+        final String si = ConvertUtil.list2String(instance.solution(l1, l2));
+        final String se = ConvertUtil.list2String(expected);
+        Assert.assertEquals(si, se);
+    }
+
     @DataProvider(name = "data")
     private Object[][] getDataProvider() {
         return new Object[][] {testData1(), testData2(), testData3()};
