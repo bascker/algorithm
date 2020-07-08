@@ -7,7 +7,9 @@ import com.bascker.algorithm.base.Stack;
 import com.bascker.common.CastUtils;
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.Arrays;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 
 public class ConvertUtil {
@@ -77,6 +79,11 @@ public class ConvertUtil {
         }
 
         return head;
+    }
+
+    public static String arr2String(int[][] arrs) {
+        return Arrays.stream(arrs).map(Arrays::toString)
+                .collect(Collectors.joining(",", "[", "]"));
     }
 
     private ConvertUtil () {}
