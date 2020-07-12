@@ -1,5 +1,7 @@
 package com.bascker.algorithm.common;
 
+import com.bascker.algorithm.base.Queue;
+import com.bascker.algorithm.base.queue.ListQueue;
 import com.bascker.algorithm.base.stack.ListStack;
 import com.bascker.algorithm.base.Stack;
 import com.bascker.algorithm.base.tree.TreeNode;
@@ -41,14 +43,44 @@ public class TreeUtil {
         System.out.println(root.getItem() + Constant.BLANK);
     }
 
+    /**
+     * 二叉树层次遍历
+     * @param root TreeNode
+     * @param <T>  Type
+     * @return     result
+     */
+    public static <T> List<T> levelOrder(final TreeNode<T> root) {
+        final List<T> list = Lists.newArrayList();
+        if (Objects.nonNull(root)) {
+            final Queue<TreeNode<T>> queue = new ListQueue<>();
+            queue.enqueue(root);
+
+            while (queue.isNotEmpty()) {
+                final TreeNode<T> node = queue.dequeue();
+                list.add(node.getItem());
+
+                // 左右节点依次入队
+                if (Objects.nonNull(node.getLeft())) {
+                    queue.enqueue(node.getLeft());
+                }
+
+                if (Objects.nonNull(node.getRight())) {
+                    queue.enqueue(node.getRight());
+                }
+            }
+        }
+
+        return list;
+    }
+
     // -------------------------------
     // DFS(deep first search) Sample
     // -------------------------------
 
     /**
      * 树的最大深度
-     * @param root
-     * @return
+     * @param root  Tree Node
+     * @return      max depth
      */
     public static <T> long maxDepth(final TreeNode<T> root) {
         if (Objects.isNull(root)) {
@@ -82,7 +114,12 @@ public class TreeUtil {
         return listAll;
     }
 
-    // 重建二叉树
+    /**
+     * 重建二叉树
+     * @param pre   前序遍历
+     * @param in    中序遍历
+     * @return      二叉树
+     */
     public TreeNode<Integer> rebuildBinaryTree(int[] pre, int[] in) {
         return rebuildBinaryTree(pre, 0, pre.length - 1, in, 0, in.length - 1);
     }
@@ -174,6 +211,10 @@ public class TreeUtil {
         Collections.reverse(list);
 
         return list;
+    }
+
+    public static <T> boolean isLeafNode(TreeNode<T> node) {
+        return Objects.nonNull(node) && Objects.isNull(node.getLeft()) && Objects.isNull(node.getRight());
     }
 
 }

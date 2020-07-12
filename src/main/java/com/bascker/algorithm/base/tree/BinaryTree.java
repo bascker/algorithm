@@ -87,8 +87,8 @@ public class BinaryTree<T> {
      */
     protected long getMaxNodeNumOfCBT(final int high, final int leafNodeNumOfUpLevel) {
         final int upLevel = high - 1;
-        final long totoalNum = (long) (Math.pow(2, upLevel) - 1);
-        return (long) (totoalNum + (Math.pow(2, upLevel - 1) - leafNodeNumOfUpLevel) * 2);
+        final long totalNum = (long) (Math.pow(2, upLevel) - 1);
+        return (long) (totalNum + (Math.pow(2, upLevel - 1) - leafNodeNumOfUpLevel) * 2);
     }
 
 }
